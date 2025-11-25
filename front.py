@@ -10,7 +10,7 @@ st.set_page_config(page_title="Analizador de texto Física", layout="centered"  
 # ---------------------------------------------------------
 # CONFIG
 # ---------------------------------------------------------
-API_URL = "http://localhost:8000/analizador"   # <-- Ajusta tu endpoint aquí
+API_URL = "https://davidanaya.pythonanywhere.com/analizador"   # <-- Ajusta tu endpoint aquí
 
 
 def call_api(text:str):
@@ -74,3 +74,4 @@ def app():
 
 if __name__ == '__main__':
     app()
+
