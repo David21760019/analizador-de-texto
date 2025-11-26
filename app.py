@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 import sqlite3
 import re
-
+import os
 app = Flask(__name__)
 
-DB_PATH = "fisica.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "fisica.db")
 
 conectores = {
     "el","la","los","las","un","una","unos","unas",
@@ -34,7 +35,10 @@ def analizar_texto(texto):
     texto = texto.lower()
     palabras_bd = cargar_palabras()
 
-    speracion = re.findall(r"\b[a-záéíóúüñ]+\b", texto)
+    
+    
+    separacion = re.findall(r"\b[a-záéíóúüñ]+\b", texto)
+
 
     separacion = [t for t in separacion if t not in conectores]
 
